@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
+import { Form } from "react-bootstrap";
 
 function Deposit(){
     const navigate = useNavigate()
@@ -10,14 +10,19 @@ function Deposit(){
     return(
         <div className="App">
             <h1>Deposit</h1>
-            <form>
-                <label>
-                    Amount:
-                    <input type="text" name="amount" />
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
-            <button onClick={goBack}>Go Back</button>
+            <div className="main-container">
+                <Form className="Form-container">
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Amount: </Form.Label> 
+                        <Form.Control type="text" placeholder="Enter amount" />
+                    </Form.Group>
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Address: </Form.Label> 
+                        <Form.Control type="text" placeholder="Enter amount" />
+                    </Form.Group>
+                </Form>
+                <button onClick={goBack}>Go Back</button>
+            </div>
         </div>
     );
 }

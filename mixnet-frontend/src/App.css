@@ -13,3 +13,26 @@
 .App button{
   margin: 1rem;
 }
+/* .App h1{
+  margin: 1rem;
+  position: fixed;
+  top: 10%;
+  left: 38%;
+} */
+.Form-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+
+}
+
+.main-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+}
+.main-container button{
+  margin: 1rem;
+}
