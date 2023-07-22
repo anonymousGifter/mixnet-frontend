@@ -1,6 +1,5 @@
 import { BrowserProvider,JsonRpcProvider } from 'ethers';
 import { initFhevm, createInstance } from 'fhevmjs';
-
 export const init = async () => {
   await initFhevm();
 };
@@ -8,8 +7,8 @@ export const init = async () => {
 let instance;
 
 export const createFhevmInstance = async () => {
-  const provider = new BrowserProvider(window.ethereum) ;
-//   const provider = new JsonRpcProvider('https://devnet.fhenix.io/');
+  // const provider = new BrowserProvider(window.ethereum) ;
+  const provider = new JsonRpcProvider('https://devnet.zama.ai/');
   const network = await provider.getNetwork();
   const chainId = +network.chainId.toString();
   const publicKey = await provider.call({

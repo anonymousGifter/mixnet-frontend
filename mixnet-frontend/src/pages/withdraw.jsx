@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import { useState } from "react";
-import { getInstance,createFhevmInstance } from '../fhevm'
 import {isAddress, toHexString} from '../Utils';
+
+// import {transfer} from '../transactions';
 
 function Withdraw(){
     
     const [amount, setAmount] = useState(0)
     const [address, setAddress] = useState(0)
-    const instance = getInstance();
 
     const handleAmountChange = (event) => {
         setAmount(event.target.value)
@@ -30,13 +30,11 @@ function Withdraw(){
             alert("Amount must be greater than 0");
             return
         }
-        // if(isAddress(address) === false){
-        //     alert("Not a valid address");
-        //     return
-        // }
+        if(isAddress(address) === false){
+            alert("Not a valid address");
+            return
+        }
         
-        console.log("Amount: ", instance);
-        console.log("Address: ", instance.encrypt32(address));
         
 
     }

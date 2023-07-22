@@ -4,7 +4,6 @@ import { getInstance,createFhevmInstance } from '../fhevm'
 import {isAddress, toHexString} from '../Utils';
 import { useState } from "react";
 
-
 function Deposit(){
     const instance = getInstance();
 
@@ -35,8 +34,8 @@ function Deposit(){
         //     return
         // }
         
-        console.log("Amount: ", instance);
-        console.log("Address: ", instance.encrypt32(address));
+        // console.log("Amount: ", instance);
+        // console.log("Address: ", instance.encrypt32(address));
         
 
     }
