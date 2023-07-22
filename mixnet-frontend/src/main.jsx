@@ -7,6 +7,7 @@ import Deposit from './pages/deposit.jsx';
 import Withdraw from './pages/withdraw.jsx';
 import Faucet from './pages/faucet.jsx'
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
@@ -17,7 +18,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/faucet" element={<Faucet/>} />
       </Routes>
     </Router>
-    
   </React.StrictMode>,
     // <App />
 )

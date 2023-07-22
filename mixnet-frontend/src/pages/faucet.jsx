@@ -2,22 +2,18 @@ import { useNavigate } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import { useState } from "react";
 import { isAddress } from "ethers";
-import {deposit} from '../transactions';
+import {approve, mint} from '../transactions';
 import { getInstance } from "../fhevm";
 import { toHexString } from "../Utils";
 import '../App.css';
 
 function Faucet(){
 
-    const [amount, setAmount] = useState(0);
-    const [address, setAddress] = useState(0);
-    const [eamount, setEamount] = useState(0);
-    const [eaddress, setEaddress] = useState(0);
-    const [approval, setApproval] = useState(false);
 
-    const handleApprovalChange = (event) => {
-        setApproval(event.target.checked)
-    };
+    const [eamount, setEamount] = useState(0);
+    const [amount, setAmount] = useState(0);    
+
+    
     const handleAmountChange = (event) => {
         let _instance = getInstance();
         _instance.then(instance=>{
@@ -25,13 +21,7 @@ function Faucet(){
         });
         setAmount(event.target.value)
     };
-    const handleAddressChange = (event) => {
-        let _instance = getInstance();
-        _instance.then(instance=>{
-            setEaddress(toHexString(instance.encrypt32(+event.target.value)));
-        });
-        setAddress(event.target.value)
-    };
+   
 
     
 
@@ -45,10 +35,7 @@ function Faucet(){
     const confirm = (e) => {
         e.preventDefault();
 
-        if(approval === false){
-            alert("Please give approval to the mixnet contract");
-            return
-        }
+        
         if(amount <= 0){
             alert("Amount must be greater than 0");
             return
@@ -57,8 +44,13 @@ function Faucet(){
             alert("Not a valid address");
             return
         }
+
+        const transaction = mint(amount);
+        if(transaction) alert("Success !");
+        else{
+            alert("Transaction failed !")
+        }
         
-        //approve the mixnet contract to spend the token
         //deposit the token to the mixnet contract
 
     }

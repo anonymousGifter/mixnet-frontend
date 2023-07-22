@@ -1,5 +1,6 @@
 import './App.css'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+
 
 function App() {
   const navigate = useNavigate()
@@ -14,8 +15,14 @@ function App() {
   const nav_faucet = () => {
     navigate('/faucet')
   }
+
+
   return (
     <div className='App'>
+      {/* <div>
+      Connected to {address}
+        <button onClick={() => disconnect()}>Disconnect</button>
+      </div> */}
       <h1>Welcome to <span>Mixnet</span></h1>
       
       <div className='button-container'>

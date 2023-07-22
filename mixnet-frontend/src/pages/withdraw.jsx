@@ -18,15 +18,6 @@ function Withdraw(){
         navigate('/faucet')
     }
 
-    const [amount, setAmount] = useState(0)
-    const [address, setAddress] = useState(0)
-
-    const handleAmountChange = (event) => {
-        setAmount(event.target.value)
-    }
-    const handleAddressChange = (event) => {
-        setAddress(event.target.value)
-    }
     
     
 
@@ -34,14 +25,6 @@ function Withdraw(){
         e.preventDefault();
 
 
-        if(amount <= 0){
-            alert("Amount must be greater than 0");
-            return
-        }
-        if(isAddress(address) === false){
-            alert("Not a valid address");
-            return
-        }
         withdraw(amount);
        
         
@@ -58,20 +41,12 @@ function Withdraw(){
 
             </div>
             <div className='banner'>
-                {/* <div className="main-container">
-                    <Form className="Form-container">
-                        <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Amount: </Form.Label> 
-                            <Form.Control type="text" placeholder="Enter amount" onChange={handleAmountChange}/>
-                        </Form.Group>
-                        
-                        <button onClick={confirm}> Confirm </button>
-                    </Form>
-                </div> */}
+            
                 <span>Please switch to the recipient account to withdraw all the funds.</span>
                 <br/>
                 <span>Check Balance: <a href="https://dapps.zama.ai/erc20/" target="blank">https://dapps.zama.ai/erc20/</a></span>
             </div>
+            <button onClick={confirm}> Withdraw</button>
             <span className='footer'>View on <a href=''>Github</a></span>
         
     </div>

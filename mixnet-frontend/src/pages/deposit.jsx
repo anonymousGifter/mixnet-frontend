@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import { useState } from "react";
 import { isAddress } from "ethers";
-import {deposit} from '../transactions';
+import {approve,deposit} from '../transactions';
 import { getInstance } from "../fhevm";
 import { toHexString } from "../Utils";
 import '../App.css';
@@ -60,7 +60,17 @@ function Deposit(){
             alert("Not a valid address");
             return
         }
-        
+        const transaction = approve(amount);
+        if(transaction){
+            const transaction2 = deposit(amount);
+            if(transaction) alert("Success !");
+            else{
+                alert("Transaction failed !")
+            }
+        }
+        else{
+            alert("Transaction not approved")
+        }
         //approve the mixnet contract to spend the token
         //deposit the token to the mixnet contract
 
@@ -76,6 +86,8 @@ function Deposit(){
 
             </div>
             <div className='banner-deposit'>
+                <div>First, please give token approval to the mixnet contract (0x2d7d9c7a534307dEa1Ed30a6D200f7131B1F8127)</div>
+            <button onClick={confirm}>Approve</button>
                 <div className="main-container">
                     <Form className="Form-container">
                         <Form.Group controlId="formBasicEmail" className="form-group">

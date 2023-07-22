@@ -3,6 +3,11 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: #242424;
+}
+body{
+  background-color: #242424;
+  color: #ffffff;
 }
 .App{
   display: flex;
@@ -108,6 +113,7 @@ a, a:active, a:focus, a:visited, a:hover{
   width: 500px !important;
   margin: 1rem !important;
   border: 1px solid #72FF80;
+  color: black;
   padding: 10px;
   font-size: 1rem;
   flex-grow: 2;
