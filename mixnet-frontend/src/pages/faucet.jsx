@@ -7,7 +7,7 @@ import { getInstance } from "../fhevm";
 import { toHexString } from "../Utils";
 import '../App.css';
 
-function Deposit(){
+function Faucet(){
 
     const [amount, setAmount] = useState(0);
     const [address, setAddress] = useState(0);
@@ -39,10 +39,9 @@ function Deposit(){
     const nav_withdraw = () => {
         navigate('/withdraw')
     }
-    
-    const nav_faucet = () => {
-        navigate('/faucet')
-      }
+    const nav_deposit = () => {
+        navigate('/deposit')
+    }
     const confirm = (e) => {
         e.preventDefault();
 
@@ -68,24 +67,21 @@ function Deposit(){
             <h1>Welcome to <span>Mixnet</span></h1>
       
             <div className='button-container'>
-                <button onClick={nav_faucet}>Faucet</button>
-                <button className="Active">Deposit</button>
+                <button className="Active">Faucet</button>
+                <button onClick={nav_deposit}>Deposit</button>
                 <button onClick={nav_withdraw}>Withdraw</button>
+
+            </div>
+            <div className="banner-faucet">
+                <span>ERC20 Address: 0x2d7d9c7a534307dEa1Ed30a6D200f7131B1F8127</span>
+                <span>Check Balance: <a href="https://dapps.zama.ai/erc20/" target="blank">https://dapps.zama.ai/erc20/</a></span>
+
 
             </div>
             <div className='banner-deposit'>
                 <div className="main-container">
                     <Form className="Form-container">
-                        <Form.Group controlId="formBasicEmail" className="form-group">
-                            <Form.Label className="label"> Recipient: </Form.Label> 
-                            <Form.Control type="text" placeholder="0x2d7d9c7a534307dEa1Ed30a6D200f7131B1F8127" value={address} onChange={handleAddressChange} className="Input"/>
-                        </Form.Group>
                         
-                        <Form.Group controlId="formBasicEmail" className="form-group">
-                            <Form.Label className="label">  </Form.Label> 
-                            <Form.Control type="text" value={eaddress} disabled onChange={handleAmountChange} className="Input"/>
-                        </Form.Group>
-
                         <Form.Group controlId="formBasicEmail" className="form-group">
                             <Form.Label className="label"> Amount: </Form.Label> 
                             <Form.Control type="text" value={amount} placeholder="10" onChange={handleAmountChange} className="Input"/>
@@ -96,11 +92,7 @@ function Deposit(){
                             <Form.Control type="text" value={eamount}  disabled onChange={handleAmountChange} className="Input"/>
                         </Form.Group>
 
-                        <Form.Group controlId="formBasicEmail" className="form-group">
-                            <Form.Control type="checkbox" value={approval} onChange={handleApprovalChange}/>
-                            <Form.Label className="label-small"> First, please give token approval to the mixnet contract ! </Form.Label> 
-
-                        </Form.Group>
+                        
 
 
                         <button onClick={confirm}>Confirm</button>
@@ -114,4 +106,4 @@ function Deposit(){
     );
 }
 
-export default Deposit;
+export default Faucet;

@@ -10,11 +10,12 @@ import '../App.css';
 function Withdraw(){
     const navigate = useNavigate()
 
-    const nav_withdraw = () => {
-        navigate('/')
-    }
+    
     const nav_deposit = () => {
         navigate('/deposit')
+    }
+    const nav_faucet = () => {
+        navigate('/faucet')
     }
 
     const [amount, setAmount] = useState(0)
@@ -51,9 +52,10 @@ function Withdraw(){
             <h1>Welcome to <span>Mixnet</span></h1>
       
             <div className='button-container'>
-                <button onClick={nav_withdraw} className="Active">Withdraw</button>
+                <button onClick={nav_faucet}>Faucet</button>
                 <button onClick={nav_deposit}>Deposit</button>
-                <button onClick={nav_deposit}>Deposit</button>
+                <button className="Active">Withdraw</button>
+
             </div>
             <div className='banner'>
                 {/* <div className="main-container">

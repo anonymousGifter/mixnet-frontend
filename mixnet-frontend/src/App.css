@@ -45,6 +45,16 @@ h1 span{
   margin: 2rem;
 
 }
+.banner-faucet{
+  height: 200px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #414141;
+
+}
 .banner-deposit{
   height: auto;
   width: 700px;
@@ -52,7 +62,6 @@ h1 span{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #414141;
   margin: 2rem;
   padding: 20px;
   text-align: center;

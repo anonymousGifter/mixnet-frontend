@@ -11,14 +11,17 @@ function App() {
     navigate('/deposit')
   }
 
+  const nav_faucet = () => {
+    navigate('/faucet')
+  }
   return (
     <div className='App'>
       <h1>Welcome to <span>Mixnet</span></h1>
       
       <div className='button-container'>
+        <button onClick={nav_faucet}>Faucet</button>
+        <button onClick={nav_deposit}>Deposit</button>
         <button onClick={nav_withdraw}>Withdraw</button>
-        <button onClick={nav_deposit}>Deposit</button>
-        <button onClick={nav_deposit}>Deposit</button>
       </div>
       <div className='banner'>
         <span>Select Action From Menu</span>
