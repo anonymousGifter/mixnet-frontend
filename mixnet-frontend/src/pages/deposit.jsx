@@ -13,7 +13,11 @@ function Deposit(){
     const [address, setAddress] = useState(0);
     const [eamount, setEamount] = useState(0);
     const [eaddress, setEaddress] = useState(0);
+    const [approval, setApproval] = useState(false);
 
+    const handleApprovalChange = (event) => {
+        setApproval(event.target.checked)
+    };
     const handleAmountChange = (event) => {
         let _instance = getInstance();
         _instance.then(instance=>{
@@ -86,7 +90,12 @@ function Deposit(){
                             <Form.Control type="text" value={eamount}  disabled onChange={handleAmountChange} className="Input"/>
                         </Form.Group>
 
-                        <span>First, please give token approval to the mixnet contract (0x2d7d9c7a534307dEa1Ed30a6D200f7131B1F8127)</span>
+                        <Form.Group controlId="formBasicEmail" className="form-group">
+                            <Form.Control type="checkbox" value={approval} onChange={handleApprovalChange}/>
+                            <Form.Label className="label-small"> First, please give token approval to the mixnet contract ! </Form.Label> 
+
+                        </Form.Group>
+
 
                         <button onClick={confirm}>Confirm</button>
 

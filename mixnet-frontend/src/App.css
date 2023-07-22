@@ -101,6 +101,9 @@ a, a:active, a:focus, a:visited, a:hover{
   font-size: 1rem;
   width: 10%;
 }
+.label-small{
+  font-size: 0.8rem;
+}
 .form-group{
   display: flex;
   flex-direction: row;
