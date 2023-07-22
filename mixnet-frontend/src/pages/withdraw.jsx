@@ -21,12 +21,12 @@ function Withdraw(){
     
     
 
-    const confirm = (e) => {
+    const confirm = async (e) => {
         e.preventDefault();
-
-
-        if(withdraw(amount)) alert("Success !!");
-        else alert("Transaction failed !");
+        console.log("calling")
+        await withdraw();
+        // if(await withdraw(amount)) alert("Success !!");
+        // else alert("Transaction failed !");
        
         
 
@@ -47,7 +47,7 @@ function Withdraw(){
                 <br/>
                 <span>Check Balance: <a href="https://dapps.zama.ai/erc20/" target="blank">https://dapps.zama.ai/erc20/</a></span>
             </div>
-            <button onClick={confirm}> Withdraw</button>
+            <button onClick={(e) => confirm(e)}> Withdraw</button>
             <span className='footer'>View on <a href=''>Github</a></span>
         
     </div>

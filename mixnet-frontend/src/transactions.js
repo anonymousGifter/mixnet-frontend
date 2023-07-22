@@ -1,7 +1,8 @@
 import { Wallet, Contract } from "ethers";
 import { getInstance, provider } from "./fhevm";
 import { abi } from "./vars";
-import { toHexString } from "./Utils";
+import { abi2 } from "./vars2";
+import { toHexString, addressTo32Bits } from "./Utils";
 const CONTRACT_ADDRESS = "0x67ae9339102C41C2a63562d5826deB8298b0Ed6A";
 const CONTRACT_ADDRESS_ERC20 = "0x2d7d9c7a534307dEa1Ed30a6D200f7131B1F8127";
 // const { chains, publicClient, webSocketPublicClient } = configureChains(
@@ -21,61 +22,42 @@ const CONTRACT_ADDRESS_ERC20 = "0x2d7d9c7a534307dEa1Ed30a6D200f7131B1F8127";
 const signer = await provider.getSigner();
 
 export const deposit = async (to, amount) => {
+  console.log("res", typeof to, amount);
   // Initialize contract with ethers
-  const contract = new Contract(CONTRACT_ADDRESS, abi, signer);
+  const contract = new Contract(CONTRACT_ADDRESS, abi2, signer);
   // Get instance to encrypt amount parameter
   const instance = await getInstance();
-  instance.then((instance) => {
-    const encryptedAmount = "0x" + toHexString(instance.encrypt32(amount));
-    const encryptedAddress = "0x" + toHexString(instance.encrypt32(to));
-
-    const transaction = contract["deposit(bytes,bytes)"](
-      encryptedAddress,
-      encryptedAmount
-    );
-    return transaction;
-  });
-  return null;
+  console.log("instance", instance);
+  console.log("test");
+  const encryptedAmount = "0x" + toHexString(instance.encrypt32(10));
+  console.log("test");
+  const encryptedAddress =
+    "0x" + toHexString(instance.encrypt32(addressTo32Bits(to)));
+  console.log("encryptedAmount", encryptedAmount, encryptedAddress);
+  const transaction = await contract["deposit(bytes,bytes)"](
+    encryptedAddress,
+    encryptedAmount
+  );
 };
 
 export const withdraw = async () => {
   // Initialize contract with ethers
-  const contract = new Contract(CONTRACT_ADDRESS, abi, signer);
-  const transaction = contract["withdraw()"](encryptedAmount);
-  return transaction;
+  console.log("calledx");
+  const contract = new Contract(CONTRACT_ADDRESS, abi2, signer);
+  const transaction = await contract["withdraw()"]();
 };
 
-export const approve = async (amount) => {
+export const approve = async (to, amount) => {
   // Initialize contract with ethers
-  const contract = new Contract(CONTRACT_ADDRESS, abi, signer);
+  const contract = new Contract(CONTRACT_ADDRESS_ERC20, abi, signer);
   // Get instance to encrypt amount parameter
   const instance = await getInstance();
-  instance.then((instance) => {
-    const encryptedAmount = "0x" + toHexString(instance.encrypt32(amount));
-
-    const transaction = contract["approve(bytes)"](encryptedAmount);
-    return transaction;
-  });
-  return null;
+  const encryptedAmount = "0x" + toHexString(instance.encrypt32(10));
+  const transaction = contract["approve(address, bytes)"](
+    CONTRACT_ADDRESS,
+    encryptedAmount
+  );
 };
-
-// export const mint = async (amount) => {
-//   console.log("called");
-//   console.log("signer", signer);
-//   const contract = new Contract(CONTRACT_ADDRESS, abi, signer);
-//   const instance = await getInstance();
-//   console.log("instance", instance);
-//   const encryptedAmount = "0x" + toHexString(instance.encrypt32(amount));
-//   const transaction = await contract["mint(bytes)"](to, encryptedAmount);
-
-//   // instance.then((instance) => {
-//   //   const encryptedAmount = "0x" + toHexString(instance.encrypt32(amount));
-//   //   const transaction = contract["mint(bytes)"](encryptedAmount);
-//   //   return transaction;
-//   // });
-
-//   return null;
-// };
 
 export const mint = async (amount) => {
   try {
