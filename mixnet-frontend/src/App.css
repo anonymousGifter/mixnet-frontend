@@ -7,18 +7,13 @@
 .App{
   display: flex;
   flex-direction: column;
-  justify-content: space-between  ;
-  align-items: space-between;
+  justify-content: center  ;
+  align-items: center;
+  text-align: center;
 }
 .App button{
   margin: 1rem;
 }
-/* .App h1{
-  margin: 1rem;
-  position: fixed;
-  top: 10%;
-  left: 38%;
-} */
 .Form-container{
   display: flex;
   flex-direction: column;
@@ -30,9 +25,85 @@
 .main-container{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: space-between;
+  justify-content: center;
+  align-items: center;
 }
 .main-container button{
   margin: 1rem;
+}
+h1 span{
+  color: #72FF80;
+}
+.banner{
+  height: 200px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #414141;
+  margin: 2rem;
+
+}
+.banner-deposit{
+  height: auto;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #414141;
+  margin: 2rem;
+  padding: 20px;
+  text-align: center;
+
+}
+.button-container{
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: space-between;
+  margin: 2rem;
+  padding: 20px;
+
+}
+.button-container button{
+  background-color: #D9D9D9;
+  color: black;
+  font-style: bold;
+}
+.button-container button:hover{
+  background-color: #72FF80;
+  color: black;
+  font-style: bold;
+}
+a, a:active, a:focus, a:visited, a:hover{
+  text-decoration: none;
+  color: #72FF80;
+}
+#diclaimer{
+  font-size: 0.8rem;
+  color: #72FF80;
+}
+.Active{
+  background-color: #72FF80 !important;
+}
+.Input{
+  width: 500px !important;
+  margin: 1rem !important;
+  border: 1px solid #72FF80;
+  padding: 10px;
+  font-size: 1rem;
+  flex-grow: 2;
+}
+.label{
+  font-size: 1rem;
+  width: 10%;
+}
+.form-group{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }

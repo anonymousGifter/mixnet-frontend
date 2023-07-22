@@ -4,18 +4,28 @@ import { useNavigate } from 'react-router-dom'
 function App() {
   const navigate = useNavigate()
 
-  const withdraw = () => {
+  const nav_withdraw = () => {
     navigate('/withdraw')
   }
-  const deposit = () => {
+  const nav_deposit = () => {
     navigate('/deposit')
   }
 
   return (
     <div className='App'>
-      <h1>Welcome to Mixnet</h1>
-      <button onClick={withdraw}>Withdraw</button>
-      <button onClick={deposit}>Deposit</button>   
+      <h1>Welcome to <span>Mixnet</span></h1>
+      
+      <div className='button-container'>
+        <button onClick={nav_withdraw}>Withdraw</button>
+        <button onClick={nav_deposit}>Deposit</button>
+        <button onClick={nav_deposit}>Deposit</button>
+      </div>
+      <div className='banner'>
+        <span>Select Action From Menu</span>
+        <br/>
+        <span id='diclaimer'>Disclaimer: Hackathon and research purposes !</span>
+      </div>
+      <span className='footer'>View on <a href=''>Github</a></span>
     </div>
   )
 }
