@@ -25,7 +25,8 @@ function Withdraw(){
         e.preventDefault();
 
 
-        withdraw(amount);
+        if(withdraw(amount)) alert("Success !!");
+        else alert("Transaction failed !");
        
         
 

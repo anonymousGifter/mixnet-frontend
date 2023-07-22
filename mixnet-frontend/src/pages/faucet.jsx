@@ -32,7 +32,7 @@ function Faucet(){
     const nav_deposit = () => {
         navigate('/deposit')
     }
-    const confirm = (e) => {
+    const confirm = async (e) => {
         e.preventDefault();
 
         
@@ -45,7 +45,7 @@ function Faucet(){
             return
         }
 
-        const transaction = mint(amount);
+        const transaction = await mint(amount);
         if(transaction) alert("Success !");
         else{
             alert("Transaction failed !")

@@ -25,8 +25,8 @@ export const deposit = async (to, amount) => {
   // Get instance to encrypt amount parameter
   const instance = await getInstance();
   instance.then((instance) => {
-    const encryptedAmount = instance.encrypt32(amount);
-    const encryptedAddress = instance.encrypt32(to);
+    const encryptedAmount = "0x" + toHexString(instance.encrypt32(amount));
+    const encryptedAddress = "0x" + toHexString(instance.encrypt32(to));
 
     const transaction = contract["deposit(bytes,bytes)"](
       encryptedAddress,
