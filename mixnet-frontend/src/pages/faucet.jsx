@@ -40,11 +40,8 @@ function Faucet(){
             alert("Amount must be greater than 0");
             return
         }
-        if(isAddress(address) === false){
-            alert("Not a valid address");
-            return
-        }
-
+        
+        console.log("calling")
         const transaction = await mint(amount);
         if(transaction) alert("Success !");
         else{
@@ -87,7 +84,7 @@ function Faucet(){
                         
 
 
-                        <button onClick={confirm}>Confirm</button>
+                        <button onClick={(e) => confirm(e)}>Mint</button>
 
                     </Form>
                 </div>
