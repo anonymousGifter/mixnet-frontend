@@ -17,9 +17,15 @@
 .Form-container{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: space-between;
+  justify-content: center;
+  align-items: center;
 
+}
+.Form-container button{
+  margin: 1rem;
+  width: 100px;
+  background-color: #72FF80;
+  text-align: center;
 }
 
 .main-container{
