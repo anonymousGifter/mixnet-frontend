@@ -19,6 +19,8 @@ export const createFhevmInstance = async () => {
   instance = await createInstance({ chainId, publicKey });
 };
 
-export const getInstance = () => {
+export const getInstance = async () => {
+  await init();
+  await createFhevmInstance();
   return instance;
 };
