@@ -28,9 +28,11 @@ function Deposit(){
     const handleAddressChange = (event) => {
         let _instance = getInstance();
         _instance.then(instance=>{
+            console.log(instance);
+
             setEaddress(toHexString(instance.encrypt32(+event.target.value)));
         });
-        setAddress(event.target.value)
+        setAddress(event.target.value);
     };
 
     
