@@ -45,7 +45,10 @@ function Deposit(){
     const confirm = (e) => {
         e.preventDefault();
 
-
+        if(approval === false){
+            alert("Please give approval to the mixnet contract");
+            return
+        }
         if(amount <= 0){
             alert("Amount must be greater than 0");
             return
@@ -55,7 +58,8 @@ function Deposit(){
             return
         }
         
-        
+        //approve the mixnet contract to spend the token
+        //deposit the token to the mixnet contract
 
     }
     return(
