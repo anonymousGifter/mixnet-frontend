@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import { useState } from "react";
-import {isAddress, toHexString} from '../Utils';
-
+import {toHexString} from '../Utils';
+import { isAddress } from "ethers";
 // import {transfer} from '../transactions';
 
 function Withdraw(){
@@ -34,7 +34,8 @@ function Withdraw(){
             alert("Not a valid address");
             return
         }
-        
+
+       
         
 
     }
