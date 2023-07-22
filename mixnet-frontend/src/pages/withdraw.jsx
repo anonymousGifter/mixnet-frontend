@@ -17,7 +17,10 @@ function Withdraw(){
     const nav_faucet = () => {
         navigate('/faucet')
     }
-
+    // const withdrawx = async ()=>{
+    //     e.preventDefault();
+    //     await withdraw();
+    // }
     
     
 
