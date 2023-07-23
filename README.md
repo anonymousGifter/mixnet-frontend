@@ -1,8 +1,9 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Mixnet frontend
+This project is the frontend part of the mixnet application realised for the Encrypted Computation hackathon.
+## To run the project
+first clone the project : \
+```git clone https://github.com/anonymousGifter/mixnet-frontend.git & cd mixnet-frontend```\
+Then install the required modules: \
+```npm install ``` \
+After that run the app using : \
+```npm run dev ```
